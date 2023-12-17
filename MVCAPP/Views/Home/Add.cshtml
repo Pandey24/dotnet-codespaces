@@ -1,0 +1,21 @@
+﻿@model MVCAPP.Models.SectionViewModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+
+<form asp-action="SubmitForm" method="post">
+    <label>Name:</label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+
+    <label>Order:</label>
+    <input asp-for="Order" />
+    <span asp-validation-for="Order"></span>
+
+    <label>Course:</label>
+    <select asp-for="CourseId" asp-items="@(new SelectList(Viewbag.Courses, "Id", "Name"))"></select>
+    <span asp-validation-for="CourseId"></span>
+
+    <input type="submit" value="Submit" />
+</form>
